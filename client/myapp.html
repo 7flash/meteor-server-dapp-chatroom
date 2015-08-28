@@ -1,0 +1,33 @@
+<head>
+  <title>Embark - Simple Server Chat App Demo</title>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6">
+        {{> chatRoom}}
+      </div>
+      <div class="col-sm-6">
+        {{> web3Info}}
+      </div>
+    </div>
+  </div>
+</body>
+
+<template name="web3Info">
+  <h3>Web3 Info</h3>
+  <pre class="web3Info">{{JSONify web3Info}}</pre>
+</template>
+
+<template name="chatRoom">
+  <h3>Blockchain Chat Room <small class='text-muted'>{{messages.length}} posts</small></h3>
+  <button class="get-posts btn btn-default"><i class='glyphicon glyphicon-refresh'></i> Get Posts</button>  <button class="btn btn-primary post-message">Post Message</button>
+  <hr>
+  <ul class="list-group">
+    {{#each messages}}
+      <li class='list-group-item'>{{.}}</li>
+    {{else}}
+      <li class="list-group-item">Loading...</li>
+    {{/each}}
+  </ul>
+</template>
